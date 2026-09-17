@@ -1,0 +1,913 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =========================
+         SEO
+    ========================== -->
+    <title>TOP PROMOTION | Ofertas e Promoções</title>
+
+    <meta name="description"
+          content="Encontre ofertas, promoções e produtos selecionados na TOP PROMOTION.">
+
+    <meta name="keywords"
+          content="ofertas, promoções, Shopee, produtos, descontos, TOP PROMOTION">
+
+    <meta name="author" content="TOP PROMOTION">
+
+    <!-- =========================
+         OPEN GRAPH
+         Facebook / WhatsApp / outras redes
+    ========================== -->
+    <meta property="og:type" content="website">
+
+    <meta property="og:title"
+          content="TOP PROMOTION | Ofertas e Promoções">
+
+    <meta property="og:description"
+          content="Confira ofertas e produtos selecionados na TOP PROMOTION.">
+
+    <meta property="og:image"
+          content="https://SEU-DOMINIO.com/imagens/preview.jpg">
+
+    <meta property="og:url"
+          content="https://SEU-DOMINIO.com">
+
+    <meta property="og:site_name"
+          content="TOP PROMOTION">
+
+    <meta property="og:locale"
+          content="pt_BR">
+
+    <!-- =========================
+         TWITTER / X
+    ========================== -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="TOP PROMOTION | Ofertas e Promoções">
+
+    <meta name="twitter:description"
+          content="Confira ofertas e produtos selecionados na TOP PROMOTION.">
+
+    <meta name="twitter:image"
+          content="https://SEU-DOMINIO.com/imagens/preview.jpg">
+
+    <!-- =========================
+         FAVICON
+    ========================== -->
+    <link rel="icon" href="imagens/favicon.png">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
+
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .topo {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #222;
+        }
+
+        .subtitulo {
+            margin-top: 5px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           SLIDER
+        ========================== */
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 350px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 0;
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .slide {
+            width: 33.3333%;
+            flex-shrink: 0;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Botões */
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.45);
+            color: white;
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            z-index: 5;
+        }
+
+        .slider-btn:hover {
+            background: rgba(0,0,0,0.7);
+        }
+
+        .prev {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
+        }
+
+        /* Indicadores */
+
+        .indicadores {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .indicador {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+        }
+
+        .indicador.ativo {
+            background: white;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================== */
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .titulo-secao {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .titulo-secao h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .titulo-secao p {
+            color: #777;
+        }
+
+        /* =========================
+           GRID DE PRODUTOS
+        ========================== */
+
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        /* =========================
+           CARD
+        ========================== */
+
+        .produto {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produto:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 220px;
+            background: #eee;
+        }
+
+        .produto-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .produto-info {
+            padding: 14px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .produto-info h2 {
+            font-size: 17px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .produto-info p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .preco {
+            font-size: 21px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 14px;
+        }
+
+        /* =========================
+           BOTÃO SHOPEE
+        ========================== */
+
+        .botao {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background: #ee4d2d;
+            color: white;
+            padding: 12px;
+            border-radius: 7px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .botao:hover {
+            background: #d93e20;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            margin-top: 60px;
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .instagram {
+            display: inline-block;
+            margin-bottom: 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .instagram:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .produtos {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .slider {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .produtos {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .produto-imagem {
+                height: 180px;
+            }
+
+            .produto-info {
+                padding: 13px;
+            }
+
+            .produto-info h2 {
+                font-size: 15px;
+            }
+
+            .produto-info p {
+                font-size: 13px;
+            }
+
+            .preco {
+                font-size: 18px;
+            }
+
+            .slider {
+                height: 190px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 420px) {
+
+            .produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .produto-imagem {
+                height: 230px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
+    <header>
+
+        <div class="topo">
+
+            <div class="logo">
+                TOP PROMOTION
+            </div>
+
+            <div class="subtitulo">
+                Ofertas e produtos selecionados
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SLIDER - ATÉ 3 BANNERS
+        ========================== -->
+
+        <div class="slider">
+
+            <div class="slides" id="slides">
+
+                <!-- BANNER 1 -->
+                <div class="slide">
+                    <img src="imagens/Gemini_Generated_Image_6ug0866ug0866ug0.jpg"
+                         alt="Ofertas TOP PROMOTION">
+                </div>
+
+                <!-- BANNER 2 -->
+                <div class="slide">
+                    <img src="imagens/banner2.jpg"
+                         alt="Promoções TOP PROMOTION">
+                </div>
+
+                <!-- BANNER 3 -->
+                <div class="slide">
+                    <img src="imagens/banner3.jpg"
+                         alt="Produtos em destaque">
+                </div>
+
+            </div>
+
+
+            <button class="slider-btn prev" onclick="mudarSlide(-1)">
+                ❮
+            </button>
+
+            <button class="slider-btn next" onclick="mudarSlide(1)">
+                ❯
+            </button>
+
+
+            <div class="indicadores">
+
+                <span class="indicador ativo"
+                      onclick="irParaSlide(0)">
+                </span>
+
+                <span class="indicador"
+                      onclick="irParaSlide(1)">
+                </span>
+
+                <span class="indicador"
+                      onclick="irParaSlide(2)">
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         PRODUTOS
+    ========================== -->
+
+    <main>
+
+        <div class="titulo-secao">
+
+            <h1>
+                Ofertas em destaque
+            </h1>
+
+        </div>
+
+
+        <div class="produtos">
+
+
+            <!-- =========================
+                 PRODUTO 1
+            ========================== -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+
+                    <img src="https://cf.shopee.sg/file/br-50009109-f75dafaf3bb9337529bb3cf30c262ba4"
+                         alt="Nome do produto 1">
+
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>
+                        Cameras e drones
+                    </h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/LnJFZ6GZV"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 2 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-3a92b15549fcbb1ba5e5558dfdb72b61"
+                         alt="Nome do produto 2">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Acessórios de moda</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/4LJS3JEqim"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 3 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-8227fa610864a8efb18c7ee15290dd7b"
+                         alt="Nome do produto 3">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Celulares e dispositivos</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/9zxoobfrIK"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 4 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-69c63b2deabe837ed5f41fd5d9b84762"
+                         alt="Nome do produto 4">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Casa e Construção</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/6fhMrIC5Rc"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 5 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-0ddb67a5e66260e6d434d6b4033af5b1"
+                         alt="Nome do produto 5">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Automóveis</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/50Z8tEAutV"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 6 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-3eebbad66328a08f5b8baca5f2acc98b"
+                         alt="Nome do produto 6">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2></h2>
+
+                    <div class="preco">
+                        R$ 149,90
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/905Hf2JVUO"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 7 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-3954d5e52cc8b3db4c50d0015e9b7ac7"
+                         alt="Nome do produto 7">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Computadores & Accessorios</h2>
+
+                    <div class="preco">
+                       
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/gQ9kIWMIh"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 8 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-95f61dbceab2e978e67235030a9932b4"
+                         alt="Nome do produto 8">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Eletrodomésticos</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/6L4WUyv7SX"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 9 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-a3689d12b70b379edaff062e303b2125"
+                         alt="Nome do produto 9">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2> Audio</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/gQ9kpetBB"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- PRODUTO 10 -->
+
+            <article class="produto">
+
+                <div class="produto-imagem">
+                    <img src="https://cf.shopee.sg/file/br-50009109-d0c33a566139eb229b8b467915cc8a85"
+                         alt="Nome do produto 10">
+                </div>
+
+                <div class="produto-info">
+
+                    <h2>Mãe e bebê</h2>
+
+                    <div class="preco">
+                        
+                    </div>
+
+                    <a class="botao"
+                       href="https://s.shopee.com.br/1BMQMJKW87"
+                       target="_blank"
+                       rel="noopener noreferrer">
+
+                        Ver na Shopee
+
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <a class="instagram"
+           href="https://instagram.com/SEUINSTAGRAM"
+           target="_blank"
+           rel="noopener noreferrer">
+
+            📸 Instagram: @SEUINSTAGRAM
+
+        </a>
+
+        <div class="copyright">
+
+            © 2026 TOP PROMOTION — Todos os direitos reservados.
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT DO SLIDER
+    ========================== -->
+
+    <script>
+
+        let slideAtual = 0;
+
+        const slides = document.getElementById("slides");
+
+        const indicadores =
+            document.querySelectorAll(".indicador");
+
+
+        function atualizarSlider() {
+
+            slides.style.transform =
+                `translateX(-${slideAtual * 33.3333}%)`;
+
+            indicadores.forEach((indicador, index) => {
+
+                indicador.classList.toggle(
+                    "ativo",
+                    index === slideAtual
+                );
+
+            });
+
+        }
+
+
+        function mudarSlide(direcao) {
+
+            slideAtual += direcao;
+
+            if (slideAtual > 2) {
+                slideAtual = 0;
+            }
+
+            if (slideAtual < 0) {
+                slideAtual = 2;
+            }
+
+            atualizarSlider();
+
+        }
+
+
+        function irParaSlide(numero) {
+
+            slideAtual = numero;
+
+            atualizarSlider();
+
+        }
+
+
+        /* Troca automática a cada 5 segundos */
+
+        setInterval(() => {
+
+            mudarSlide(1);
+
+        }, 5000);
+
+    </script>
+
+</body>
+</html>
+```
